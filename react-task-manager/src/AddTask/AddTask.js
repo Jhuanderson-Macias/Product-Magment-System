@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './AddTask.css'
-import { Modal } from 'react-bootstrap';
 
 class AddTask extends Component {
   constructor(props){
@@ -9,19 +8,28 @@ class AddTask extends Component {
     this.handleShow = this.handleShow.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
     this.state = {
-      show : false
+      addNewTask : (<div></div>)
     }
   }
 
   handleClose(){
     this.setState({
-      show : false
+      addNewTask : (<div></div>)
     })
   }
 
   handleShow(){
     this.setState({
-      show : true
+      addNewTask: (
+       <form>
+         <div className='form-group'>
+          <label>TaskName</label>
+          <input className="form-control" type="text"/>
+          <button type="submit" className="btn btn-primary" onClick= {this.handleAdd}>add</button>
+          <button className="btn btn-primary" onClick= {this.handleClose}>close</button>
+         </div>
+       </form>
+    )
     })
   }
 
@@ -29,8 +37,13 @@ class AddTask extends Component {
     alert('add')
   }
 
+
+
   render() {
+
     return (
+      <div>
+      {this.state.addNewTask}
       <div className="row">
           <div className="col-sm-8">
             <h3 className="AddTask-header">React Task Manager</h3>
@@ -38,19 +51,7 @@ class AddTask extends Component {
           <div className="col-sm-4">
             <button type="button" className="btn btn-success AddTask-button" onClick = {this.handleShow}>Add</button>
           </div>
-          <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header>
-              <Modal.Title>React Task Manager</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <form>
-                  <div className="form-group">
-                      <input type="text" className="form-control" id="inputTask" placeholder="Enter task to add"></input>
-                  </div>
-                  <button type="button" onClick={this.handleAdd} className="btn btn-primary">Add </button>
-              </form>
-            </Modal.Body>
-          </Modal>
+      </div>
       </div>
     );
   }
