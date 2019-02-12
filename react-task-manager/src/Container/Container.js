@@ -1,24 +1,28 @@
-import React, { Component } from 'react'
-import './Container.css'
-import List from '../ListTask/ListTask.js'
-import AddTask from '../AddTask/AddTask.js'
-import Users from '../Users/Users.js'
+import React from 'react'
+
+import { BrowserRouter as Router, Route,  Link } from 'react-router-dom';
+
+import Navigation from '../Navigation/Navigation.js';
 
 
-class Container extends Component {
-  render() {
-    return (
-      <div className="container Container-marginTop Container-color">
-        <Users></Users>
-        <AddTask></AddTask>
-        <List></List>
-        <hr />
-        <footer>
-          <p>www.codehandbook.org</p>
-        </footer>
-      </div>
-    );
-  }
-}
+import LandingPage from '../Users/Users.js'; 
+import SignUpPage from '../AddTask/AddTask.js';
+import SignInPage from '../ListTask/ListTask.js';
+
+import * as ROUTES from '../Constants/routes';
+
+const Container = () => (
+  <Router>
+    <div>
+      <Navigation />
+
+      <hr />
+
+      <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+    </div>
+  </Router>
+);
 
 export default Container;

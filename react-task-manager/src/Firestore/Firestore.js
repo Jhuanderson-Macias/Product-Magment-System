@@ -1,21 +1,14 @@
-import app from 'firebase/app';
-import 'firebase/auth';
+import * as firebase from 'firebase';
 
 const config = {
-    apiKey: "XXXX",
-    authDomain: "XXX",
-    databaseURL: "XXX",
-    projectId: "rXX",
-    storageBucket: "rXX",
-    messagingSenderId: "3XXXX"
+    apiKey: "AXXXXXXX",
+    authDomain: "XXXXX",
+    databaseURL: "htXXXXXX",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: ""
 };
 
-class Firebase {
-  constructor() {
-    app.initializeApp(config);
+firebase.initializeApp(config);
 
-    this.auth = app.auth();
-  }
-}
-
-export default Firebase;
+export default firebase;

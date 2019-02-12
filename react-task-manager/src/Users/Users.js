@@ -1,5 +1,5 @@
 import React from 'react';
-import Firestore from '.../Firestore';
+import firebase from '../Firestore/Firestore.js';
 
 class User extends React.Component {
 
