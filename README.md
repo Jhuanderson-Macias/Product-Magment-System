@@ -1,4 +1,4 @@
-# Product Magment System
+# Product Magment System With FireStore BackEnd
 
 Setting up a res for a working project. 
 Project will entail three main section
